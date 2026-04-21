@@ -1,0 +1,678 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>ChipnRun : The social golf application</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+
+    <!-- 1140px Grid styles for IE -->
+	<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'website/css/ie.css' %}" type="text/css" media="screen" /><![endif]-->
+
+	<!-- The 1140px Grid - http://cssgrid.net/ -->
+	<link rel="stylesheet" href="{% static 'website/css/1140.css' %}" type="text/css" media="screen" />
+
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Your styles -->
+	<link rel="stylesheet" href="{% static 'website/css/main.css' %}" type="text/css" media="screen" />
+
+    <!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
+    <script type="text/javascript" src="{% static 'website/js/css3-mediaqueries.js' %}"></script>
+
+    <script src="{% static 'website/js/graphlite/jqBarGraph.1.1.js' %}"></script>
+
+    <script language="JavaScript" type="text/javascript" src="{% static 'website/js/flotgraph/jquery.flot.js' %}"></script>
+
+    <script src="{% static 'website/js/fullcalendar/fullcalendar.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'website/js/fullcalendar/fullcalendar.css' %}" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="{% static 'website/js/rcarousel/lib/jquery.ui.widget.js' %}"></script>
+    <script type="text/javascript" src="{% static 'website/js/rcarousel/lib/jquery.ui.rcarousel.js' %}"></script>
+
+	
+    <script type="text/javascript">
+        jQuery(function($) {
+            $("#carousel").rcarousel({
+                orientation: "vertical",
+                auto: {
+                    enabled: true,
+                    interval: 2000,
+                    direction: "next"
+                }
+            });
+            
+                                
+        });
+
+
+    </script>
+
+	
+    
+	
+    
+</head>
+
+
+<body>
+<div class="wrapper">
+
+
+<div class="container topgreenheader">
+	<div class="row">
+    
+    <div class="fourcol" style="vertical-align:bottom">
+        	<div class="middlealign">
+            <h1>
+            	the online social golfing system
+            </h1>
+            </div>
+		</div>
+        
+        <div class="fourcol">
+        	<div class="logo">
+            	<img src="{% static 'website/images/chipnrun_logo.png' %}">
+            </div>
+		</div>
+        
+		<div class="fourcol last">
+        	<div class="middlealign right">
+            	<div>
+                
+                <form action="" method="get">
+                	<div id="username"><input name="" type="text" class="loginform borderradius6px" placeholder="username"></div>
+                    <div id="password"><input name="" type="password" class="loginform borderradius6px" placeholder="password"></div>
+                    <div id="login"><input name="" type="submit" class="loginbutton"></div>
+                </form>
+                
+                <a href="#" class="white textshadowblack normal" style="letter-spacing:normal;">Forgotten your password? Click here.</a>
+                </div>
+            </div>
+		</div>
+    </div>
+</div>
+
+<div class="container topbarposition">
+	<div class="row">
+		<div class="twelvecol" style="height:73px;">
+            <div class="topbar borderradius6px">
+                <ul>
+                	<li><a href="#" class="topbarnav" style="-webkit-border-radius: 5px 0px 0px 5px;border-radius: 5px 0px 0px 5px;">Home</a></li>
+                    <li><a href="#" class="topbarnav">Join a Group </a></li>
+                    <li><a href="#" class="topbarnav">Book Your Tee Times</a></li>
+                    <li><a href="#" class="topbarnav">Subscribe</a></li>
+                    <li><a href="#" class="topbarnav">Golf Courses</a></li>
+                    <li><a href="#" class="topbarnav">Challenge Board</a></li>
+                    <li><a href="#" class="topbarnav">Download Mobile App</a></li>
+                </ul>
+                
+                <div class="register"></div>
+            </div>
+		</div>
+    </div>
+</div>
+
+
+
+<div class="container">
+	<div class="row">
+		<div class="twocol rightshadow" style="text-align:right;">
+                <div style="background: url({% static 'website/images/profileindividual/Rory-McIlroy1.jpg' %}); background-repeat:no-repeat; display:block; width:144px; height:150px; float:right; background-position:0px 28px; background-size:144px">
+                	<img src="{% static 'website/images/profileindividual/photo_overlay.png' %}">
+                </div>
+                
+                <div class="spacer"></div>        
+                <div class="profilemessage greymedtext">
+                <strong>A message from Duncan McCleod</strong><br>                
+                Continually repurpose innovative synergy without competitive internal or "organic" sources. Progressively procrastinate flexible e-tailers and customer directed metrics. <br>
+                <br>
+                <strong>A message from Duncan McCleod</strong><br>                
+                Continually repurpose innovative synergy without competitive internal or "organic" sources. Progressively procrastinate flexible e-tailers and customer directed metrics.
+                </div>
+		
+        </div>
+        
+      <div class="fourcol rightshadow removeleftmargin">
+        
+                <div class="profileheader greymedtext"><div class="contentmiddle" style="text-align:left; padding-left:20px;">Rory McIlroy</div></div>
+                <div class="profilecontentheader greymedtext">
+                	<img src="{% static 'website/images/icons/marker_small.png' %}" align="absmiddle"> County Down, N Ireland
+                </div>
+                <div class="membersash"></div>
+                
+                                
+                <div class="latestscores greymedtext" style="margin-top:50px;left:-100px; top:-40px; white-space:nowrap">Your latest score</div>
+                
+                <div class="greentext" style="display:block; position:relative; left:-60px; top:-40px; z-index:300">
+                	<h1 style="font-weight:400; font-size:4em; text-shadow:">
+                		86 <sup>Handicap 3</sup>
+                    </h1>
+                </div>
+                
+                <div class="greymedtext" style="display:block; position:relative; left:0px; top:-50px; padding:0px 0px; text-align:center">
+                	Rickmansworth Country Club Golf Course
+                    <br>
+                    19th November 2012
+                </div>
+                
+                <div class="previousscoresdiv">
+                	<div class="previousscores greentext">88</div>
+                    <div class="previousscorescourse greymedtext">Rickmansworth Country Club Golf Course
+                    <br>
+                    19th October 2012</div>
+                </div>
+                
+                <div class="previousscoresdiv">
+                	<div class="previousscores greentext">90</div>
+                    <div class="previousscorescourse greymedtext">Rickmansworth Country Club Golf Course
+                    <br>
+                    19th September 2012</div>
+                </div>
+                
+                <div class="previousscoresdiv">
+                	<div class="previousscores greentext">94</div>
+                    <div class="previousscorescourse greymedtext">Rickmansworth Country Club Golf Course
+                    <br>
+                    19th August 2012</div>
+                </div>
+                <div class="previousscoresdiv">
+                	<div class="previousscores greentext">94</div>
+                    <div class="previousscorescourse greymedtext">Rickmansworth Country Club Golf Course
+                    <br>
+                    19th August 2012</div>
+                </div>
+                
+                
+                
+                <div class="" style="padding:0px 30px;">
+                	<a href="#" class="greyactionbutton"><img src="{% static 'website/images/icons/stats.png' %}" align="absmiddle">View your stats<div class="actionsubtext">get the statistics of your recorded scores</div>
+                    </a><br>
+
+                </div>
+                
+                
+                
+		
+        </div>
+        
+        <div class="twocol rightshadow removeleftmargin">
+        
+                <div class="profileheader greymedtext">
+                	<div class="contentmiddle" style="text-align:left; padding-left:20px; vertical-align:middle; font-size:0.5em">
+                    	 
+                    </div>
+                </div>
+                <div class="profilecontentheader greymedtext">
+                
+                
+                </div>
+                
+             
+                
+                
+                
+                
+                
+                <div id="content" align="center">
+			
+			
+			<div id="container">
+				<div id="carousel">
+                <div style="background:url({% static 'website/images/profileindividual/friends/ernie.jpg' %}); width:80px; height:80px;">
+
+                    <a href="#" style="background:url()" title="Ernie Else"><img src="{% static 'website/images/profileindividual/friends/smalloverlay.png' %}"></a>
+                                    <div class="nametag" style="">Ernie Else</div>
+                    </div>
+                    
+                	<div style="background:url({% static 'website/images/profileindividual/friends/jennifer.jpg' %}); width:80px; height:80px;">
+                    <a href="http://www.jennysprofile.com" style="background:url()" title="Jennifer Connelly"><img src="{% static 'website/images/profileindividual/friends/smalloverlay.png' %}"></a>
+                    <div class="nametag" style="">Jennifer Connelly</div>
+                    </div>
+                    
+                    <div style="background:url({% static 'website/images/profileindividual/friends/default.jpg' %}); width:80px; height:80px;">
+                    <a href="#" style="background:url()" title="Bob Hope"><img src="{% static 'website/images/profileindividual/friends/smalloverlay.png' %}"></a>
+                    <div class="nametag" style="">Bob Hope</div>
+                    </div>
+                    
+                    <div style="background:url({% static 'website/images/profileindividual/friends/gary.jpg' %}); width:80px; height:80px;">
+                    <a href="#" style="background:url()" title="Gary Player"><img src="{% static 'website/images/profileindividual/friends/smalloverlay.png' %}"></a>
+                    <div class="nametag" style="">Gary Player</div>
+                    </div>
+                    
+                    <div style="background:url({% static 'website/images/profileindividual/friends/kate.jpg' %}); width:80px; height:80px;">
+                    <a href="#" style="background:url()" title="Kate Beckinsale"><img src="{% static 'website/images/profileindividual/friends/smalloverlay.png' %}"></a>
+                    <div class="nametag" style="">Kate Beckinsale</div>
+                    </div>
+                    
+                    <div style="background:url({% static 'website/images/profileindividual/friends/retief.jpg' %}); width:80px; height:80px;">
+                    <a href="#" style="background:url()" title="Retief Goosen"><img src="{% static 'website/images/profileindividual/friends/smalloverlay.png' %}"></a>
+                    <div class="nametag" style="">Retief Goosen</div>
+                    </div>
+                    
+                    <div style="background:url({% static 'website/images/profileindividual/friends/katy.jpg' %}); width:80px; height:80px;">
+                    <a href="#" style="background:url()" title="Katy Perry"><img src="{% static 'website/images/profileindividual/friends/smalloverlay.png' %}"></a>
+                    <div class="nametag" style="">Katy Perry</div>
+                    </div>
+                    
+                    <div style="background:url({% static 'website/images/profileindividual/friends/default.jpg' %}); width:80px; height:80px;">
+                    <a href="#" style="background:url()" title="Philip Tobias"><img src="{% static 'website/images/profileindividual/friends/smalloverlay.png' %}"></a>
+                    <div class="nametag" style="">Philip Tobias</div>
+                    </div>
+                    
+                    <div style="background:url({% static 'website/images/profileindividual/friends/bobby.jpg' %}); width:80px; height:80px;">
+                    <a href="#" style="background:url()" title="Bobby Locke"><img src="{% static 'website/images/profileindividual/friends/smalloverlay.png' %}"></a>
+                    <div class="nametag" style="">Bobby Locke</div>
+                    </div>
+                    
+                    <div style="background:url({% static 'website/images/profileindividual/friends/natalie.jpg' %}); width:80px; height:80px;">
+                    <a href="#" style="background:url()" title="Natalie Imbruglia"><img src="{% static 'website/images/profileindividual/friends/smalloverlay.png' %}"></a>
+                    <div class="nametag" style="">Natalie Imbruglia</div>
+                    </div>
+                    
+                    <div style="background:url({% static 'website/images/profileindividual/friends/nina.jpg' %}); width:80px; height:80px;">
+                    <a href="#" style="background:url()" title="Nina Dobrev"><img src="{% static 'website/images/profileindividual/friends/smalloverlay.png' %}"></a>
+                    <div class="nametag" style="">Nina Dobrev</div>
+                    </div>
+                    
+                    <div style="background:url({% static 'website/images/profileindividual/friends/olivia.jpg' %}); width:80px; height:80px;">
+                    <a href="#" style="background:url()" title="Olivia Wilde"><img src="{% static 'website/images/profileindividual/friends/smalloverlay.png' %}"></a>
+                    <div class="nametag" style="">Olivia Wilde</div>
+                    </div>
+                    
+                    <div style="background:url({% static 'website/images/profileindividual/friends/nataliep.jpg' %}); width:80px; height:80px;">
+                    <a href="#" style="background:url()" title="Natalie Portman"><img src="{% static 'website/images/profileindividual/friends/smalloverlay.png' %}"></a>
+                    <div class="nametag" style="">Natalie Portman</div>
+                    </div>
+                              
+                </div>
+				
+			</div>
+		</div>
+                
+		
+        </div>
+        
+        <div class="twocol rightshadow removeleftmargin">
+        
+                <div class="profileheader greymedtext">
+                	<div class="contentmiddle" style="text-align:left; padding-left:20px; vertical-align:middle; font-size:0.5em">
+                    	
+                    </div>
+                </div>
+                <div class="profilecontentheader greymedtext"></div>
+                
+                <div class="latestscores greymedtext" style=" font-size:1.2em; padding:10px; font-weight:400; line-height:20px;">Current Events</div><br>
+
+                
+                
+                
+                
+          <div class="tabholders">
+                        
+                        <!--*********************************************************************** -->
+                        <div class="datetabcontainer" id="datetabid"  alt="View">
+                            <div class="datetab">19 Nov 2012</div>
+                            <div class="datetext">The Rickansworth PGA Masters Tour</div>
+                            
+                            <div class="slideoutholder greymedtext" id="slideoutholder_1" alt="Close">
+                                <div class="competitionsslideout">
+                                    <div class="competitionheader">The Rickmansworth PGA Masters Tour in Rickmansworth</div>
+                                    Organiser : Retief Goosen<br>
+									I'm not entirely sure what you want to show in this interface, scores?, handicaps?, something in a table?
+                                    <br><br>
+
+                                    <ul>
+                                    	<li><a href="http://www.jennysprofile.com">Jennifer Connely</a></li>
+                                        <li><a href="#">Philip Tobias</a></li>
+                                        <li><a href="#">Nina Dobrev</a></li>
+                                        <li><a href="#">Olivia Wilde</a></li>
+                                        <li><a href="#">Natalie Portman</a></li>
+                                        <li><a href="#">Jennifer Connely</a></li>
+                                        <li><a href="#">Jennifer Anniston</a></li>
+                                    </ul>
+                                </div>
+                            </div>                            
+                        </div>
+                        <!--*********************************************************************** -->
+                        
+                        
+                        
+                        
+                        <!--*********************************************************************** -->
+                        <div class="datetabcontainer" id="datetabid"  alt="View">
+                            <div class="datetab">19 Nov 2012</div>
+                            <div class="datetext">The Rickansworth PGA Masters Tour</div>
+                            
+                            <div class="slideoutholder greymedtext" id="slideoutholder_1" alt="Close">
+                                <div class="competitionsslideout">
+                                    <div class="competitionheader">The Very Silly Game of The Month</div>
+                                    Organiser : Retief Goosen<br>
+									I'm not entirely sure what you want to show in this interface, scores?, handicaps?, something in a table?
+                                    <br><br>
+
+                                    <ul>
+                                    	<li><a href="http://www.jennysprofile.com">Jennifer Connely</a></li>
+                                        <li><a href="#">Philip Tobias</a></li>
+                                        <li><a href="#">Nina Dobrev</a></li>
+                                        <li><a href="#">Olivia Wilde</a></li>
+                                        <li><a href="#">Natalie Portman</a></li>
+                                        <li><a href="#">Jennifer Connely</a></li>
+                                        <li><a href="#">Jennifer Anniston</a></li>
+                                    </ul>
+                                </div>
+                            </div>                            
+                        </div>
+                        <!--*********************************************************************** -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!--*********************************************************************** -->
+                        <div class="datetabcontainer" id="datetabid"  alt="View">
+                            <div class="datetab">19 Nov 2012</div>
+                            <div class="datetext">The Rickansworth PGA Masters Tour</div>
+                            
+                            <div class="slideoutholder greymedtext" id="slideoutholder_1" alt="Close">
+                                <div class="competitionsslideout">
+                                    <div class="competitionheader">The Very Silly Game of The Month</div>
+                                    Organiser : Retief Goosen<br>
+									I'm not entirely sure what you want to show in this interface, scores?, handicaps?, something in a table?
+                                    <br><br>
+
+                                    <ul>
+                                    	<li><a href="http://www.jennysprofile.com">Jennifer Connely</a></li>
+                                        <li><a href="#">Philip Tobias</a></li>
+                                        <li><a href="#">Nina Dobrev</a></li>
+                                        <li><a href="#">Olivia Wilde</a></li>
+                                        <li><a href="#">Natalie Portman</a></li>
+                                        <li><a href="#">Jennifer Connely</a></li>
+                                        <li><a href="#">Jennifer Anniston</a></li>
+                                    </ul>
+                                </div>
+                            </div>                            
+                        </div>
+                        <!--*********************************************************************** -->
+                        
+                        
+                        
+                        
+
+						<div class="spacer"></div>
+                        <!--<div align="center"><img src="{% static 'website/images/setup_new_comp.png' %}"></div> -->
+
+             
+          </div>
+                
+            
+
+<script>
+	$(document).ready(function() {
+		
+		$(".datetabcontainer").click(function () {
+			 tabId = $(this).attr("id");
+			 tabTitle = $(this).attr("alt");
+			 positionTab = $("#"+tabId).offset();
+			 speed = 200;
+			
+			if(tabTitle == "View") {
+				$('div[alt*="Click to Close"]').hide({duration: speed, queue: false});
+				$('.slideoutholder').attr("alt", "Click to Close")
+				$('div[alt="Close"]').attr("alt", "View").animate({ left: "0px"}, {duration: speed, queue: false});
+				$(this).attr("alt", "Close").animate({ left: "-505px"}, {duration: speed, queue: false});
+				$(this).children("div.slideoutholder").show({duration: speed, queue: false});	
+			}
+			else {								
+				$(this).attr("alt", "View").animate({ left: "0px"}, {duration: speed, queue: false});
+				$(this).children("div.slideoutholder").hide({duration: speed, queue: false});
+			}
+		});
+	});
+	
+	$('body').click(function(event) {
+    if (!$(event.target).closest('.datetabcontainer').length) {
+        if(tabTitle == "View") {
+				$('div[alt*="Click to Close"]').hide({duration: speed, queue: false});
+				$('.slideoutholder').attr("alt", "Click to Close")
+				$('div[alt="Close"]').attr("alt", "View").animate({ left: "0px"}, {duration: speed, queue: false});
+				$(this).attr("alt", "Close").animate({ left: "-505px"}, {duration: speed, queue: false});
+				$(this).children("div.slideoutholder").show({duration: speed, queue: false});	
+			}
+			else {								
+				$(this).attr("alt", "View").animate({ left: "0px"}, {duration: speed, queue: false});
+				$(this).children("div.slideoutholder").hide({duration: speed, queue: false});
+			}
+    };
+});
+
+</script>				                
+                
+				
+		
+        </div>
+        
+        
+        <div class="threecol  removeleftmargin last">
+        
+                <div class="profileheader greymedtext">
+                	<div class="contentmiddle" style="text-align:left; padding-left:20px; vertical-align:bottom; font-size:0.4em; line-height:13px">
+                    	 657 Lononderry Avenue, Somewhereplace, County Down, Northern Ireland<br>
+                         racyrory.bighitter@golfingplace.com<br>
+                         0771 555 6532
+                  </div>
+                </div>
+                <div class="profilecontentheader greymedtext"></div>
+                
+                
+                <div class="latestscores greymedtext" style=" font-size:1.2em; padding:10px; font-weight:400; line-height:20px;">Upcoming Events</div>
+                <div id="calendar"></div>​
+                
+                
+                <div class="latestscores greymedtext" style=" font-size:1.2em; padding:10px; font-weight:400; line-height:20px;">Random QuikView Stats<br>
+				<span style="font-size:0.7em">Your 10 Latest Scores</span>
+                </div>
+                
+                              
+                <div id="quickstatsgraph" style="width:auto;height:150px; margin-left:20px;"></div>
+                
+                <script>				
+					$(function () {
+						var options = {
+							
+							grid: {
+									show: true,
+									aboveData: false,
+									color: "rgba(0,0,0,0.6)",
+									backgroundColor: null,
+									margin: 0,
+									labelMargin: 5,
+									axisMargin: 5,
+									borderWidth: 0,
+									borderColor: "rgba(0,0,0,0.2)"
+								
+								},
+								series: {
+									lines: { show: true },
+									points: { 
+										show: true,
+										radius: 4,
+										lineWidth: 2,
+										color: "rgba(255,255,255,1)",
+										fill: true,
+										fillColor: "rgba(255,255,255,1)"
+										},
+								lines: { 
+											show: true,
+											lineWidth: 1,
+											color: "#919733"
+										}
+								},
+								
+								xaxis: {
+									ticks: 0,
+									
+									}
+							};
+					
+						var capturedScores = [[1, 83], [2, 80], [3, 80], [4, 84], [5, 79], [6, 80],[7, 83], [8, 82], [9, 85], [10, 80]];
+						$.plot($("#quickstatsgraph"), [capturedScores], options);
+						
+					});
+				</script>
+		
+      </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="push"></div>
+        </div>
+        <div class="footer">
+        
+        
+<div class="container footerplaid">
+<div class="container footerback">
+	<div class="row"  style="height:200px;">
+		<div class="threecol white"  style="font-weight:300; font-size:0.8em">
+			<h3>About ChipnRun</h3>
+            ChipnRun was developed after the need for a social, fun platform for recording, tracking and comparing scores was identified by a group of golf buddies. All involved with IT and marketing they had the necessary skills to get the system running the way they wanted it to be.
+        </div>
+        
+        <div class="threecol white"  style="font-weight:300; font-size:0.8em">
+			<ul class="footerlinks">
+                	<li><a href="#">Home</a></li>
+                    <li><a href="#" class="">Join a Group </a></li>
+                    <li><a href="#" class="">Book Your Tee Times</a></li>
+                    <li><a href="#" class="">Subscribe</a></li>
+                    <li><a href="#" class="">Golf Courses</a></li>
+                    <li><a href="#" class="">Challenge Board</a></li>
+                    <li><a href="#" class="">Download Mobile App</a></li>
+                    <li><a href="#" class="">Advertise with ChipnRun</a></li>
+                    <li><a href="#" class=""></a></li>
+                    
+                                                                                                         
+                    
+                </ul>
+        </div>
+        
+        <div class="threecol white"  style="font-weight:300; font-size:0.8em">
+			<h3>Golfing News</h3>
+            
+            <h4 style="margin-bottom:5px;">Martin Kaymer wins his first title of 2012</h4>
+            Martin Kaymer finally secured his first title of the year with a two-shot victory at the Nedbank Golf Challenge.
+The German Ryder Cup star, 27, finished eight under par, with 2011 Masters winner Charl Schwartzel second, ahead of American Bill Haas on three under.
+
+        </div>
+        
+      <div class="threecol white last"  style="font-weight:300; font-size:0.8em">
+			<h3>Still unsure of what to do?</h3>
+            You can register your group or just yourself to be able to log all your scores, personal notes and reviews on golf courses you've played and your recommendations on what to do on which courses.<br><br>
+<div align="center"><a href="#"><img src="{% static 'website/images/register_footer.png' %}"></a></div>
+      </div>
+
+        
+        
+    </div>
+</div>  
+</div>        
+
+</div>
+
+    <script type="text/javascript">
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        $('#calendar').fullCalendar({
+            
+            theme: false,
+            header: {
+                left: 'prev',
+            center: 'title',
+            right: 'next today'
+    
+            },
+            editable: false,
+            
+            // add event name to title attribute on mouseover
+            eventMouseover: function(event, jsEvent, view) {
+                if (view.name !== 'agendaDay') {
+                    $(jsEvent.target).attr('title', event.title);
+                }
+            },
+            
+            dayClick: function(date, allDay, jsEvent, view) {
+                if(!allDay) {
+                    // strip time information
+                    date = new Date(date.getFullYear(), date.getMonth(), date.getDay());
+                }
+                $('#calendar').fullCalendar('clientEvents', function(event) {
+                    if(event.start <= date && event.end >= date) {
+                        return true;
+                    }
+                    return false;
+                });
+        },
+            
+            // For DEMO only
+            // *************
+            events: [
+                {
+                title: 'The Rickansworth PGA Masters Tour',
+                start: new Date(y, m, 1)},
+            {
+                title: 'Long Event',
+                start: new Date(y, m, d - 5),
+                end: new Date(y, m, d - 2)},
+            {
+                id: 999,
+                title: 'Repeating Event',
+                start: new Date(y, m, d - 3, 16, 0),
+                allDay: false},
+            {
+                id: 999,
+                title: 'Repeating Event',
+                start: new Date(y, m, d + 4, 16, 0),
+                allDay: false},
+            {
+                title: 'Meeting',
+                start: new Date(y, m, d, 10, 30),
+                allDay: false},
+            {
+                title: 'Lunch',
+                start: new Date(y, m, d, 12, 0),
+                end: new Date(y, m, d, 14, 0),
+                allDay: false},
+            {
+                title: 'Birthday Party',
+                start: new Date(y, m, d + 1, 19, 0),
+                end: new Date(y, m, d + 1, 22, 30),
+                allDay: false},
+            {
+                title: 'Click for Google',
+                start: new Date(y, m, 28),
+                end: new Date(y, m, 29),
+                url: 'http://google.com/'}
+            ]
+        });
+
+
+
+    </script>
+</body>
+
+</html>

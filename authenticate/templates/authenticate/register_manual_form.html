@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-5 offset-md-3">
+        <form action="{% url 'register_user' %}" method="POST">
+          {% csrf_token %}
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="Username" placeholder="" name="username">
+            <label for="Username">Username</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="FirstName" placeholder="" name="firstName">
+            <label for="FirstName">First Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="LastName" placeholder="" name="lastName">
+            <label for="LastName">Last Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="EMail" placeholder="" name="email">
+            <label for="EMail">EMail</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="password" placeholder="password" name="password">
+            <label for="password">Password</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="confirmPassword" placeholder="password" name="confirmPassword">
+            <label for="password">Confirm Password</label>
+          </div>
+          <button type="submit" class="btn btn-success">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

@@ -41,9 +41,18 @@
               </li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              {% if user.is_authenticated %}
+              <li class="nav-item d-flex">
+                <a class="nav-link active" href="{% url 'logout_user' %}" tabindex="-1" aria-disabled="false">Logout</a>
+              </li>
+              {% else %}
               <li class="nav-item d-flex">
                 <a class="nav-link active" href="{% url 'login_user' %}" tabindex="-1" aria-disabled="false">Login</a>
               </li>
+              <li class="nav-item d-flex">
+                <a class="nav-link active" href="{% url 'register_user' %}" tabindex="-1" aria-disabled="false">Register</a>
+              </li>
+              {% endif %}
             </ul>
           </div>
         </div>
@@ -53,13 +62,9 @@
       {% if messages %}
       <div class="messages mt-3">
         {% for message in messages %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          {{message}}
+        <div {% if message.tags %} class="{{ message.tags }}"{% endif %} role="alert">
+          {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error: {% endif %}{{message}}
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>
-          {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error: {% endif %}
-          {{ message }}
         </div>
         {% endfor %}
       </div>

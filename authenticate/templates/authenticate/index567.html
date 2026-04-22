@@ -3,5 +3,5 @@
 {% load static %}
 
 {% block content %}
-  <h1 class="mt-2">Hello, world!</h1>
+  <h1 class="mt-2">Hello {{ user.first_name | default:"please login to continue"}}</h1>
 {% endblock %}

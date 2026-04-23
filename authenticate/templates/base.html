@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Authentication Demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
   <body>
@@ -42,9 +42,26 @@
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               {% if user.is_authenticated %}
+              <li class="nav-item dropdown">
+                <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Profile
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a></li>
+                  <li><a class="dropdown-item" href="{% url 'change_password' %}">Change Password</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'logout_user' %}">Logout</a></li>
+                </ul>
+              </li>
+              {% comment %} <li class="nav-item d-flex">
+                <a class="nav-link active" href="{% url 'change_password' %}" tabindex="-1" aria-disabled="false">Change Password</a>
+              </li>
+              <li class="nav-item d-flex">
+                <a class="nav-link active" href="{% url 'edit_profile' %}" tabindex="-1" aria-disabled="false">Edit Profile</a>
+              </li>
               <li class="nav-item d-flex">
                 <a class="nav-link active" href="{% url 'logout_user' %}" tabindex="-1" aria-disabled="false">Logout</a>
-              </li>
+              </li> {% endcomment %}
               {% else %}
               <li class="nav-item d-flex">
                 <a class="nav-link active" href="{% url 'login_user' %}" tabindex="-1" aria-disabled="false">Login</a>

@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout, password_validation
+from django.contrib.auth import authenticate, login, logout, password_validation, update_session_auth_hash
 from django.utils.html import format_html
 
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
-from .forms import RegistrationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
+from .forms import RegistrationForm, EditProfileForm
 
 # Create your views here.
 def home(request):
@@ -64,3 +64,36 @@ def register_user(request):
         form = RegistrationForm()
 
     return render(request, 'authenticate/register.html', {'form': form})
+
+def edit_profile(request): 
+
+    # determine what request is being received
+    if request.method == "POST":
+        form = EditProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+        
+            messages.success(request, "You have successfully updated your profile", extra_tags="alert alert-success alert-dismissible fade show")
+            return redirect('home')
+        
+    else:
+        form = EditProfileForm(instance=request.user)
+
+    return render(request, 'authenticate/edit_profile.html', {'form': form})
+
+
+def change_password(request):
+    
+    # determine what request is being received
+    if request.method == "POST":
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            messages.success(request, "You have successfully updated your password", extra_tags="alert alert-success alert-dismissible fade show")
+            return redirect('home')
+        
+    else:
+        form = PasswordChangeForm(user=request.user)
+
+    return render(request, 'authenticate/change_password.html', {'form': form})

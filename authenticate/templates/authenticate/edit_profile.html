@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-  <style>
+<style>
     {% comment %} .helptext {% endcomment %}
     .helptext {
       {% comment %} margin-bottom: 0.25rem; {% endcomment %}
@@ -23,7 +23,7 @@
   <div class="container">
     <div class="row mt-3">
       <div class="col-md-5 offset-md-3">
-        <form action="{% url 'register_user' %}" method="POST">
+        <form action="{% url 'edit_profile' %}" method="POST">
           {% csrf_token %}
           {% if form.errors %}
           <div class="alert alert-danger alert-dismissible fade show text-left" role="alert">
@@ -38,7 +38,6 @@
           {% endcomment %}
           </div> 
           {% endif %}
-          
           {% for field in form %}
           <div class="form-floating mb-3">
             {{ field }}  
@@ -50,12 +49,12 @@
               {% endif %}
               {{ field.errors }}
             </div>
-          {% endfor %}          
+            {% endfor %}          
 
-          <button type="submit" class="btn btn-success">Register</button>
+          <button type="submit" class="btn btn-success">Save Profile</button>
         </form>
       </div>
     </div>
   </div>
 
-  {% endblock %}
+{% endblock %}

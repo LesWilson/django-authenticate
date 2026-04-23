@@ -1,47 +1,69 @@
 {% extends 'base.html' %}
 
 {% load static %}
+
 {% block content %}
-
-<style>
-  {% comment %} .helptext {% endcomment %}
-  .helptext {
-    {% comment %} margin-bottom: 0.25rem; {% endcomment %}
-    font-size: 0.7em;
-    font-weight: 600;
-    color: blue;
-  }
-  .errorlist {
-    color: red;
-    font-weight: 700;
-    font-size: 0.9em;
-    list-style: none;
-  }
-</style>
-
+  <style>
+    {% comment %} .helptext {% endcomment %}
+    .helptext {
+      {% comment %} margin-bottom: 0.25rem; {% endcomment %}
+      font-size: 0.7em;
+      font-weight: 600;
+      color: blue;
+    }
+    .errorlist {
+      color: red;
+      font-weight: 700;
+      font-size: 0.7em;
+      list-style: none;
+      padding-left: 0.5rem !important;
+    }
+  </style>
+  
   <div class="container">
     <div class="row mt-3">
-      <div class="col-md-8 offset-md-2">
+      <div class="col-md-5 offset-md-3">
         <form action="{% url 'register_user' %}" method="POST">
           {% csrf_token %}
           {% if form.errors %}
-          <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+          <div class="alert alert-danger alert-dismissible fade show text-left" role="alert">
             Your submission has errors, see below.
           {% comment %} {% for field in form %}
             {% if field.errors %}
               {{ field.errors }}
             {% endif %}
-          {% endfor %} {% endcomment %}
+          {% endfor %}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          {% comment %} <p class="errorlist">Your submission has errors, see below</p> {% endcomment %}
+          
+          {% endcomment %}
+          </div> 
           {% endif %}
-
-          {{ form.as_p }}
+          
+          {% for field in form %}
+          <div class="form-floating mb-3">
+            {{ field }}  
+            {{ field.label_tag }}
+              {% if field.help_text %}
+                <div class="helptext" id="{{ field.auto_id }}_helptext">
+                  {{ field.help_text|safe }}
+                </div>
+              {% endif %}
+              {{ field.errors }}
+            </div>
+          {% endfor %}          
 
           <button type="submit" class="btn btn-success">Register</button>
         </form>
       </div>
     </div>
   </div>
+
+  <script type="text/javascript">
+    form = document.getElementById("registrationForm");
+    form_p_elems = form.getElementsByTagName("p");
+    for(element of form_p_elems) {
+      element.className = "form-floating";
+    }
+  </script>
+
   {% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    {% comment %} .helptext {% endcomment %}
+    .helptext {
+      {% comment %} margin-bottom: 0.25rem; {% endcomment %}
+      font-size: 0.7em;
+      font-weight: 600;
+      color: blue;
+    }
+    .errorlist {
+      color: red;
+      font-weight: 700;
+      font-size: 0.7em;
+      list-style: none;
+      padding-left: 0.5rem !important;
+    }
+  </style>
+  
+    <div class="row mt-3">
+      <div class="col-md-5 offset-md-3">
+        <form method="POST">
+          {% csrf_token %}
+          {% if form.errors %}
+          <div class="alert alert-danger alert-dismissible fade show text-left" role="alert">
+            Your submission has errors, see below.
+          </div> 
+          {% endif %}
+
+          {% for field in form %}
+          <div class="form-floating mb-3">
+            {{ field }}  
+            {{ field.label_tag }}
+              {% if field.help_text %}
+                <div class="helptext" id="{{ field.auto_id }}_helptext">
+                  {{ field.help_text|safe }}
+                </div>
+              {% endif %}
+              {{ field.errors }}
+            </div>
+            {% endfor %}          
+
+          <button type="submit" class="btn btn-success">Save Society</button>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}

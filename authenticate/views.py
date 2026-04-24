@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout, password_validation, update_session_auth_hash
-from django.utils.html import format_html
-
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
-from .forms import RegistrationForm, EditProfileForm
+from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic import ListView
+
+from .forms import RegistrationForm, EditProfileForm, SocietyForm
+from .models import Society
+
 
 # Create your views here.
 def home(request):
@@ -97,3 +100,23 @@ def change_password(request):
         form = PasswordChangeForm(user=request.user)
 
     return render(request, 'authenticate/change_password.html', {'form': form})
+
+
+class SocietyListView(ListView):
+    model = Society
+
+    context_object_name = 'society_list'   # your own name for the list as a template variable
+    template_name = 'society/list.html'
+    paginate_by = 10
+
+class SocietyDetailView(UpdateView):
+    model = Society
+    template_name = 'society/details.html'
+    form_class = SocietyForm
+    template_name_suffix = ''
+    success_url = "/societies/"
+
+    def form_valid(self, form):
+        messages.success(self.request, "The society was updated successfully.", extra_tags="alert alert-success alert-dismissible fade show")
+        return super(SocietyDetailView,self).form_valid(form)
+

@@ -1,10 +1,10 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
+from django.forms import ModelForm
 from django import forms
+from .models import Society
 
 class EditProfileForm(UserChangeForm):
-
-    # password = forms.CharField(widget=forms.TextInput(attrs={'type':'hidden'}))
 
     class Meta:
         model = User
@@ -13,29 +13,10 @@ class EditProfileForm(UserChangeForm):
 
     def __init__(self, *args, **kwargs):
         super(EditProfileForm, self).__init__(*args, **kwargs)
+        #we don't want the password on the form
         self.fields.pop('password')
-        self.label_suffix = ''
-        self.fields['username'].widget.attrs['class'] = 'form-control mb-1'
-        self.fields['username'].widget.attrs['placeholder'] = 'Username'
-        self.fields['username'].label = 'Username'
 
-        # self.fields['password'].widget.attrs['class'] = 'form-control mb-1'
-        # self.fields['password'].widget.attrs['placeholder'] = ''
-        # self.fields['password'].label = ''
-        # self.fields['password'].help_text = ''
-
-        self.fields['first_name'].widget.attrs['class'] = 'form-control mb-1'
-        self.fields['first_name'].widget.attrs['placeholder'] = 'First Name'
-        self.fields['first_name'].label = 'First Name'
-
-        self.fields['last_name'].widget.attrs['class'] = 'form-control mb-1'
-        self.fields['last_name'].widget.attrs['placeholder'] = 'Last Name'
-        self.fields['last_name'].label = 'Last Name'
-
-        self.fields['email'].widget.attrs['class'] = 'form-control mb-1'
-        self.fields['email'].widget.attrs['placeholder'] = 'Email'
-        self.fields['email'].label = 'Email'
-
+        setFieldFormatting(self)
 
 
 class RegistrationForm(UserCreationForm):
@@ -50,17 +31,24 @@ class RegistrationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
 
-        self.label_suffix = ''
-        self.fields['username'].widget.attrs['class'] = 'form-control mb-1'
-        self.fields['username'].widget.attrs['placeholder'] = 'Username'
-        self.fields['username'].label = 'Username'
+        setFieldFormatting(self)
 
-        self.fields['password1'].widget.attrs['class'] = 'form-control mb-1'
-        self.fields['password1'].widget.attrs['placeholder'] = 'Password'
-        self.fields['password1'].label = 'Password'
-        # self.fields['password1'].help_text = self.fields['password1'].help_text.replace("<ul>", "<ul class='helptext'>")
+class SocietyForm(ModelForm):
+    class Meta:
+         model = Society
+         fields = ["id", "name", "description", "location"]
 
-        self.fields['password2'].widget.attrs['class'] = 'form-control mb-1'
-        self.fields['password2'].widget.attrs['placeholder'] = 'Confirm Password'
-        self.fields['password2'].label = 'Confirm Password'
+    def __init__(self, *args, **kwargs):
+        super(SocietyForm, self).__init__(*args, **kwargs)
 
+        setFieldFormatting(self)        
+
+
+def setFieldFormatting(target):
+    
+    for field in target.fields:
+        target.fields[field].widget.attrs['placeholder'] = ' '
+        target.fields[field].widget.attrs['class'] = 'form-control mb-1'
+    
+    target.label_suffix = ''
+    

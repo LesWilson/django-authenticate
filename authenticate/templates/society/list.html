@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  
+  <h1>Society List</h1>
+  {% if society_list %}
+    <ul>
+      {% for society in society_list %}
+      <li>
+        <a href="{% url 'society_detail' society.id %}">{{ society.name }}</a>
+        ({{society.location}})
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no societies yet.</p>
+  {% endif %}
+
+{% endblock %}
